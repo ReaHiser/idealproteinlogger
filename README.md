@@ -8,7 +8,7 @@ CREDITS
 =======
 
 silex-skeleton
-**************
+--------------
 Lucian Hontau (lucian303)
 
 [http://lucianux.com/](http://lucianux.com/)
@@ -17,9 +17,13 @@ Copyright 2013 Lucian Hontau
 
 Other packages including Symfony have their own copyrights. See respective files.
 
+***
+
 ruckusing-migrations
-********************
+--------------------
 Cody Caughlan (ruckus)
 
 [https://github.com/ruckus](https://github.com/ruckus)
-[http://ruckus.tumblr.com/] (http://ruckus.tumblr.com/)
+[http://ruckus.tumblr.com/](http://ruckus.tumblr.com/)
+
+***
