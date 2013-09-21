@@ -1,0 +1,7 @@
+{% extends 'layout.html.twig' %}
+{% set active = 'register' %}
+
+{% block content %}
+    <h1>{{ 'Register'|trans }}</h1>
+    {{ form(form, {action: path('register')}) }}
+{% endblock %}

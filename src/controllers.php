@@ -36,6 +36,44 @@ $app->match('/doctrine', function() use ($app) {
     );
 })->bind('doctrine');
 
+$app->match('/register', function(Request $request) use ($app) {
+
+    $builder = $app['form.factory']->createBuilder('form');
+
+    $form = $builder
+        ->add('text1', 'text', array(
+            'constraints' => array(new Assert\Length(array('max'=>'125')), new Assert\NotBlank()),
+            'attr'        => array('placeholder' => 'Your Full Name'),
+            'label'       => 'Full Name'
+        ))
+        ->add('text2', 'text', array(
+            'constraints' => new Assert\NotBlank(),
+            'attr'        => array('placeholder' => 'Username'),
+            'label'       => 'Username'
+        ))
+        ->add('password_repeated', 'repeated', array(
+            'type'            => 'password',
+            'invalid_message' => 'The password fields must match.',
+            'options'         => array('required' => true),
+            'first_options'   => array('label' => 'Password'),
+            'second_options'  => array('label' => 'Repeat Password'),
+        ))
+        ->add('submit', 'submit')
+        ->getForm()
+    ;
+
+    if ($request->isMethod('POST')) {
+        if ($form->submit($request)->isValid()) {
+            $app['session']->getFlashBag()->add('success', 'The form is valid');
+        } else {
+            $form->addError(new FormError('This is a global error'));
+            $app['session']->getFlashBag()->add('info', 'The form is bind, but not valid');
+        }
+    }
+
+    return $app['twig']->render('register.html.twig', array('form' => $form->createView()));
+})->bind('register');
+
 $app->match('/form', function(Request $request) use ($app) {
 
     $builder = $app['form.factory']->createBuilder('form');
@@ -147,7 +185,7 @@ $app->error(function (\Exception $e, $code) use ($app) {
             $message = 'The requested page could not be found.';
             break;
         default:
-            $message = 'We are sorry, but something went terribly wrong.';
+            $message = $e->getMessage(); // 'We are sorry, but something went terribly wrong.';
     }
 
     return new Response($message, $code);

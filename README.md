@@ -1,11 +1,5 @@
-Silex - Kitchen Sink Edition
-============================
+Bud's Ideal Protein Logger
+==========================
 
-This project is a sample or a bootstrap silex application.
-You can use it for your next php application.
-
-For more informations, see the
-[**dedicated page**](http://lyrixx.github.com/Silex-Kitchen-Edition).
-
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/7fccf04a-aa27-4412-831b-99ce86fb5df7/mini.png)](https://insight.sensiolabs.com/projects/7fccf04a-aa27-4412-831b-99ce86fb5df7)
-[![Build Status](https://secure.travis-ci.org/lyrixx/Silex-Kitchen-Edition.png?branch=master)](http://travis-ci.org/lyrixx/Silex-Kitchen-Edition)
+This project is Bud Manz's attempt at using Silex to create a way for him to keep track of and report to his coach all
+his information for the Ideal Protein Weight Loss program.  See their [**website**](http://www.idealprotein.com) for more details!

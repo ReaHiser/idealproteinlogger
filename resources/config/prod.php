@@ -1,10 +1,10 @@
 <?php
 
 // Local
-$app['locale'] = 'fr';
+$app['locale'] = 'en';
 $app['session.default_locale'] = $app['locale'];
 $app['translator.messages'] = array(
-    'fr' => __DIR__.'/../resources/locales/fr.yml',
+    'en' => __DIR__.'/../resources/locales/en.yml',
 );
 
 // Cache
@@ -37,7 +37,7 @@ $app['db.options'] = array(
     'host'     => 'localhost',
     'dbname'   => 'silex_kitchen',
     'user'     => 'root',
-    'password' => '',
+    'password' => 'MyName!1987',
 );
 
 // User
