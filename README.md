@@ -25,6 +25,7 @@ Other packages including Symfony have their own copyrights. See respective files
 ### Cody Caughlan (ruckus) ###
 
 [https://github.com/ruckus](https://github.com/ruckus)
+
 [http://ruckus.tumblr.com/](http://ruckus.tumblr.com/)
 
 ***
