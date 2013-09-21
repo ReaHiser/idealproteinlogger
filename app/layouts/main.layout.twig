@@ -3,12 +3,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>
-	</title>
+	<title>{{ page }} - Bud's Ideal Protein Logger</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<!-- Le styles -->
+	<!-- Styles -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<style type="text/css">
 		body {
@@ -19,7 +18,7 @@
 	</style>
 	<link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link href="/css/layout.css" rel="stylesheet">
-	<!-- Le fav and touch icons -->
+	<!-- Fav and touch icons -->
 	<link rel="shortcut icon" href="favicon.ico">
 	<style>
 	</style>
@@ -48,7 +47,9 @@
 	{% block content %}{% endblock %}
 
 	<div class="footer">
-		<p class="">&copy; Lucian Hontau 2013</p>
+        {%  set start_year = 2013 %}
+        {%  set current_year = "now"|date('y') %}
+		<p class="">&copy; 2013{% if current_year > 13 %}-{{ current_year }}{% endif %} Manz Web Designs, LLC.</p>
 	</div>
 
 </div>

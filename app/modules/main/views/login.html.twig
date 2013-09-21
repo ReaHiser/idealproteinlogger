@@ -1,17 +1,30 @@
 {% extends "main.layout.twig" %}
+{% set page = 'Login Page' %}
 
 {% block content %}
+    <section class="hero-unit text-center">
+        <h2>
+            Welcome to Bud&apos;s Ideal Protein Logger!
+        </h2>
+        <div class="">
+            Please log in.
+        </div>
+    </section>
 	<hr />
 
 	<!-- Example row of columns -->
 	<div class="row-fluid">
 		<div class="span12">
-			<div class='body-content' style="text-align: center;">
+			<div class='body-content text-center'>
 				<form action="{{ path('login_check') }}" method="post">
 				    {{ error }}
-				    <input class="login-username" type="text" name="_username" value="{{ last_username }}" />
-				    <input class="login-password" type="password" name="_password" value="" />
-				    <input class="login-submit"type="submit" />
+                    <label>User Name:
+                        <input class="login-username" type="text" name="_username" value="{{ last_username }}"/>
+                    </label>
+                    <label>&nbsp; Password:
+                        <input class="login-password" type="password" name="_password" value=""/>
+                    </label>
+                    <input class="login-submit"type="submit" />
 				</form>
 			</div>
 		</div>
