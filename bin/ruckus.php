@@ -1,0 +1,1 @@
+/var/www/idealprotein/vendor/ruckusing/ruckusing-migrations/ruckus.php

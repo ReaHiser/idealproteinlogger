@@ -1,6 +1,10 @@
-/composer.lock
-/resources/cache/*
-/resources/log/*
-/vendor/
-/web/assets/*
-.idea/
+.idea/*
+
+
+# Composer
+vendor/*
+
+# Silex directories
+log/*
+cache/*
+web/uploads/*
