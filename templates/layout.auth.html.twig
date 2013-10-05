@@ -1,0 +1,95 @@
+{% set user = app.session.get('user') %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>{{ page }} - Bud's Ideal Protein Logger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Styles -->
+    <link href="{{ app.request.baseUrl }}/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            /* 60px to make the container go all the way
+                  to the bottom of the topbar */
+        }
+    </style>
+    <link href="{{ app.request.baseUrl }}/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="{{ app.request.baseUrl }}/css/layout.css" rel="stylesheet">
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <style>
+    </style>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+    improve your experience.</p>
+<![endif]-->
+
+<div class="container">
+    <section class="masthead">
+        <nav class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    {% if user %}
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        {% if user.role == 'ROLE_ADMIN' %}
+                            <li><a href="{{ path('admin_clients_index') }}">Update Client</a></li>
+                            <li><a href="{{ path('admin_clients_create') }}">Add New Client</a></li>
+                        {% else %}
+                            <li><a href="{{ path('service_links') }}">Links</a></li>
+                            <li><a href="{{ path('contact') }}">Contact</a></li>
+                        {% endif %}
+                        <li><a href="{{ path('my_account') }}">My Account</a></li>
+                        <li><a href="{{ path('logout') }}">Log out</a></li>
+
+                    </ul>
+                    {% else %}
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="http://www.idealprotein.com" target="_blank">Ideal Protein</a></li>
+                        <li><a href="https://www.facebook.com/officialidealprotein" class="">IP Facebook</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <section class="text-center">
+        {% include 'partials/flashbag.html.twig' %}
+        {% block content %} {% endblock %}
+    </section>
+
+    <footer class="footer">
+        {%  set current_year = "now"|date('y') %}
+        <p class="">&copy; 2013{% if current_year > 13 %}-{{ current_year }}{% endif %} Manz Web Designs, LLC.</p>
+    </footer>
+
+</div>
+<!-- /container -->
+
+<script src="{{ app.request.baseUrl }}/js/vendor/jquery/jquery-2.0.0.min.js"></script>
+<script src="{{ app.request.baseUrl }}/js/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="{{ app.request.baseUrl }}/js/vendor/underscore/underscore-1.4.4.min.js"></script>
+<script src="{{ app.request.baseUrl }}/js/vendor/json2/json2.min.js"></script>
+<script src="{{ app.request.baseUrl }}/js/vendor/backbone/backbone-1.0.0.min.js"></script>
+<script src="{{ app.request.baseUrl }}/js/app.js"></script>
+
+</body>
+</html>

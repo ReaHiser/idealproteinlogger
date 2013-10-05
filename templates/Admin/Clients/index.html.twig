@@ -1,0 +1,19 @@
+{% extends 'layout.auth.html.twig' %}
+
+{% set title = 'Edit Client' %}
+
+{% block content %}
+
+    <section>
+        <form method="post" id="userSelectForm">
+            {{ form_widget(form) }}
+        </form>
+    </section>
+    
+    <script>
+    	$(document).ready(function() {
+    		$('#form_username').change(function() { $('#userSelectForm').submit(); });
+    	});
+    </script>
+
+{% endblock %}

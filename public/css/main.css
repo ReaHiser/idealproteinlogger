@@ -1,0 +1,313 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+html, body {
+    font-family: 'Century Schoolbook', serif;
+    padding: 0;
+}
+
+body {
+    background-color: #333333;
+}
+
+label {
+	margin: 12px 0 0;
+}
+
+form input[type=text], form input[type=email], form input[type=password], form textarea, form select { /*
+    left: 125px;
+    position: absolute; */
+    margin-top: 8px;
+}
+
+form input[type=text], form input[type=email], form textarea {
+    width: 400px;
+}
+
+.navbar-form input[type=text], .navbar-form input[type=email], .navbar-form input[type=password], .navbar-form select {
+    left: inherit;
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 8px;
+    width: 60%;
+}
+
+p.login, p.login a {
+    margin-top: 8px;
+    margin-left: 8px;
+    color: #eeeeee;
+    font-size: 18px;
+}
+
+form input[type="checkbox"] {
+    margin: 4px 0 0 6px;
+}
+
+form input[type="submit"] {
+    margin-top: 12px;
+}
+
+#form_submit {
+	margin-top: 24px;
+}
+
+#submit {
+    margin-top: 12px;
+    margin-left: 12px;
+}
+
+.hero-unit h1 {
+    font-size: 45px;
+    text-align: center;
+}
+
+.messageWrapper {
+    font-weight: bold;
+    width: 75%;
+    margin: 0 auto;
+    line-height: 2;
+    font-size: 18px;
+    color: white;
+    padding: 16px;
+}
+
+section.message {
+    background-color: red;
+    text-align: center;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 15px 15px 0 0;
+}
+
+section.error {
+    background-color: orangered;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 0 0 15px 15px;
+    padding-bottom: 12px;
+}
+
+section.error p {
+    padding-left: 18px;
+    margin-bottom: -10px;
+}
+
+.navbar p {
+    color: #999;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    text-align: right;
+    padding: 6px 0 0 0;
+    margin: -6px 0 0 0;
+}
+
+.login {
+    display: block;
+}
+
+.login input {
+    margin-bottom: 6px;
+}
+
+header {
+    background: url(../img/hbkgrnd.jpg) repeat-x;
+    height: 107px;
+}
+
+.sf_extra2 {
+    background-image: url(../img/bg_madl.jpg);
+    height: 52px;
+    width: 88px;
+    float: left;
+}
+
+header .row {
+    margin: 0;
+    color: white;
+}
+
+header .col-lg-6 {
+    padding-top: 12px;
+}
+
+header .col-lg-6 div.header-text {
+    font-size: 13px;
+    width: 400px;
+}
+
+header .col-lg-6 div.header-text div {
+    padding-left: 12px;
+    display: inline-block;
+    line-height: 20px;
+}
+
+header .col-lg-6 div.header-text div.main-header-text {
+    font-size: 22px;
+}
+
+header .col-lg-6 div.header-text div.tagline {
+    margin-top: 12px;
+}
+
+header .col-6.call-to-action {
+    display: none;
+}
+
+header .col-lg-6.call-to-action {
+    text-align: center;
+    padding-top: 12px;
+    float: right;
+}
+
+.sf_main_header {
+    color: #ffffff;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sf_region3 {
+    float: left;
+    width: 95%;
+}
+
+.container hr {
+    width: 100%;
+}
+
+.nav {
+    margin-top: 8px;
+}
+
+aside ul li {
+    border-bottom: 1px solid #333333;
+    border-top: 1px solid #ffffff;
+}
+
+aside ul li a {
+    background: url(/img/623_bullet.jpg) no-repeat 26px 11px;
+    color: #333333;
+    display: block;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 11px 7px 11px 53px;
+    text-decoration: none;
+}
+
+aside ul { /*
+    background: url(/img/623_navbg.jpg) 100% 0 repeat-y; */
+    background-image: linear-gradient(right , #FFFBEF 53%, #EAE4CB 0%);
+    background-image: -o-linear-gradient(right , #FFFBEF 53%, #EAE4CB 0%);
+    background-image: -moz-linear-gradient(right , #FFFBEF 53%, #EAE4CB 0%);
+    background-image: -webkit-linear-gradient(right , #FFFBEF 53%, #EAE4CB 0%);
+    background-image: -ms-linear-gradient(right , #FFFBEF 53%, #EAE4CB 0%);
+
+    background-image: -webkit-gradient(
+        linear,
+        right bottom,
+        left bottom,
+        color-stop(0.53, #FFFBEF),
+        color-stop(0, #EAE4CB)
+    );
+    border-top: 1px solid #333333;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+aside .btn {
+    margin-left: 8px;
+}
+
+aside {
+    background-color: #938d76;
+}
+
+.nav > li > a {
+    padding: 11px 7px 11px 53px;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.col-10.pull-right {
+    padding: 18px;
+}
+
+div.container {
+    background: url(/img/623_content_bg.gif) repeat 0 0;
+}
+
+form label {
+    width: 10em;
+    vertical-align: text-bottom;
+}
+
+form textarea {
+    height: 100px;
+}
+
+#form_username {
+    width: inherit;
+}
+
+footer .footer {
+    background: #346ba2 url(/img/fbkgrnd.jpg) repeat-x 0 0 !important;
+    clear: both;
+    color: #ffffff;
+    padding: 0 0 15px;
+    font-family: arial,helvetica,sans-serif;
+    text-align: center;
+    width: 100%;
+}
+
+#copyright {
+    padding-top: 15px;
+}
+
+footer .footer a {
+    color: #ffffff;
+}
+
+footer .footer img {
+    max-width: 100%;
+}
+
+@media (max-width: 979px) {
+    aside ul li a {
+        background: none;
+        padding-left: 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    aside .btn-navbar {
+        display: none;
+    }
+
+    .nav {
+        margin-top: 8px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    header .col-lg-6.call-to-action {
+        display: none;
+    }
+
+    .nav-collapse .nav>li>a, .nav-collapse .dropdown-menu a  {
+        background: url(/img/623_bullet.jpg) no-repeat 26px 11px;
+        padding-left: 54px;
+    }
+
+    header .col-6.call-to-action {
+        display: inherit;
+        width: 100%;
+        padding-top: 4px;
+        font-size: 20px;
+    }
+}

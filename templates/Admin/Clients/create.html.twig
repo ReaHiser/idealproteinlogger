@@ -1,0 +1,21 @@
+{% extends 'layout.auth.html.twig' %}
+
+{% set title = 'Add New Client' %}
+
+{% block content %}
+
+    <section id="error">
+        {% if error %}
+            Sorry, but something happened and that record did not save,
+            please check the information to be sure it is correct and try again.
+        {% endif %}
+    </section>
+
+    <section id="message">
+        <form method="post">
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-medium btn-primary" id="submit">Create Client</button>
+        </form>
+    </section>
+
+{% endblock %}

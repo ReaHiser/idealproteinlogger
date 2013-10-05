@@ -1,0 +1,14 @@
+{% extends 'layout.auth.html.twig' %}
+
+{% set title = 'Contact Us' %}
+
+{% block content %}
+
+    <h1>Contact Digital Payroll Corporation</h1>
+    
+    <form method="post" class="form">
+        {{ form_widget(contactForm) }}
+        <button type="submit" class="btn btn-medium btn-primary" id="submit">Send Message</button>
+    </form>
+
+{% endblock %}

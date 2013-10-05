@@ -1,0 +1,14 @@
+{% extends 'layout.auth.html.twig' %}
+
+{% set title = 'Update Client' %}
+
+{% block content %}
+    
+    <section>
+        <form method="post">
+            {{ form_widget(clientForm) }}
+            <button type="submit" class="btn btn-medium btn-primary" id="submit">Update Client</button>
+        </form>
+    </section>
+
+{% endblock %}
