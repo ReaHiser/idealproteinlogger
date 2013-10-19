@@ -1,6 +1,20 @@
 {% extends 'layout.auth.html.twig' %}
 
-{% set title = 'Update Client' %}
+{% set page = 'Update Client' %}
+{% set message = 'Client Update page' %}
+
+{% block herounit %}
+
+    <section id="content">
+        <article class="hero-unit text-center">
+            <h2>
+                Welcome, {{ user.full_name }}!
+            </h2>
+            {{ message }}
+        </article>
+    </section>
+
+{% endblock %}
 
 {% block content %}
 

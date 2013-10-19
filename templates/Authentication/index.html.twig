@@ -1,6 +1,22 @@
 {% extends 'layout.html.twig' %}
 
-{% set title = 'Home' %}
+{% set page = 'Home' %}
+{% set message = 'Please login below to gain access to the system!' %}
+
+{% block herounit %}
+
+    <section id="content">
+        <article class="hero-unit text-center">
+            <h2>
+                Welcome, guest!
+            </h2>
+            {{ message }}<br />
+            If you don't have an account, please feel free to request one by <a href="{{ path('contact') }}">contacting</a>
+            us!
+        </article>
+    </section>
+
+{% endblock %}
 
 {% block content %}
 
@@ -11,15 +27,6 @@
     <h1>
 
     </h1>
-    <section id="content">
-        <article class="hero-unit text-center">
-            <h2>
-                Welcome to Bud&apos;s Ideal Protein Logger!
-            </h2>
-            <div class="">
-                Please log in.
-            </div>
-        </article>
         <article class="login-wrapper">
 
             <form class="navbar-form text-center" method="post">

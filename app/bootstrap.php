@@ -69,3 +69,22 @@ $isAdmin = function(Request $request) use ($app) {
 		return $app->redirect('/');
 	}
 };
+
+$sendMail = function(Request $request) use ($app) {
+    $user = $app['session']->get('user');
+    if(!$user || substr($user->role, 0, 4) != 'ROLE') {
+        $app['session']->getFlashBag()->add('error', 'You must login to use this page!');
+        return $app->redirect('/');
+    }
+
+    $data = $form->getData();
+    $message = \Swift_Message::newInstance()
+        ->setSubject('Contact Form Message')
+        ->setFrom(array($data['email'] => $data['name']))
+        ->setTo($app['config']['contactMail'])
+        ->setBody($data['comments'])
+    ;
+
+    $app['mailer']->send($message);
+    $app['session']->getFlashBag()->add('success', 'Your confirmation message was sent successfully.');
+};

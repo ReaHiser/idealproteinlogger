@@ -1,10 +1,11 @@
-.idea/*
-
-
-# Composer
-vendor/*
-
-# Silex directories
-log/*
-cache/*
-web/uploads/*
+app/Model/config.php
+.idea
+vendor/
+tmp/sessions/
+.buildpath
+.project
+.settings
+.vagrant
+!/public/js/vendor
+logs/
+db/

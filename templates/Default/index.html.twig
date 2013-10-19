@@ -1,11 +1,25 @@
 {% extends 'layout.auth.html.twig' %}
 
-{% set title = 'Home' %}
+{% set page = 'Home' %}
+{% set message = 'Welcome to your portal!' %}
+
+{% block herounit %}
+
+    <section id="content">
+        <article class="hero-unit text-center">
+            <h2>
+                Welcome, {{ user.full_name }}!
+            </h2>
+            {{ message }}
+        </article>
+    </section>
+
+{% endblock %}
 
 {% block content %}
 
     <section id="messages">
-        Authenticated!
+        Our homepage content here...
     </section>
 
 {% endblock %}

@@ -27,8 +27,7 @@
     <link href="{{ app.request.baseUrl }}/css/layout.css" rel="stylesheet">
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="favicon.ico">
-    <style>
-    </style>
+    <script src="{{ app.request.baseUrl }}/js/vendor/jquery/jquery-2.0.0.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -37,26 +36,30 @@
     improve your experience.</p>
 <![endif]-->
 
-
 <div class="container">
     <section class="masthead">
         <nav class="navbar">
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li><a class="active" href="/">Home</a></li>
                         <li><a href="http://www.idealprotein.com" target="_blank">Ideal Protein</a></li>
-                        <li><a href="https://www.facebook.com/officialidealprotein" class="">IP Facebook</a></li>
-                        <li><a href="#">Downloads</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="https://www.facebook.com/officialidealprotein" target="_blank">IP Facebook</a></li>
+                        <li><a href="/">Downloads</a></li>
+                        <li><a href="/">About</a></li>
+                        <li><a href="/">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </section>
 
-    {% block content %}{% endblock %}
+    <section class="text-center">
+        <div id="content">
+            {% block herounit %}{% endblock %}
+            {% block content %} {% endblock %}
+        </div>
+    </section>
 
     <footer class="footer">
         {%  set current_year = "now"|date('y') %}
@@ -66,7 +69,6 @@
 </div>
 <!-- /container -->
 
-<script src="{{ app.request.baseUrl }}/js/vendor/jquery/jquery-2.0.0.min.js"></script>
 <script src="{{ app.request.baseUrl }}/js/vendor/bootstrap/bootstrap.min.js"></script>
 <script src="{{ app.request.baseUrl }}/js/vendor/underscore/underscore-1.4.4.min.js"></script>
 <script src="{{ app.request.baseUrl }}/js/vendor/json2/json2.min.js"></script>

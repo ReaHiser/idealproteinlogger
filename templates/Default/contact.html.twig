@@ -1,10 +1,24 @@
 {% extends 'layout.auth.html.twig' %}
 
-{% set title = 'Contact Us' %}
+{% set page = 'Contact Us' %}
+{% set message = 'Please fill out and submit this form if you have any questions, comments and/or suggestions!' %}
+
+{% block herounit %}
+
+    <section id="content">
+        <article class="hero-unit text-center">
+            <h1>Contact Ideal Protein Logger</h1>
+            {{ message }}
+        </article>
+    </section>
+
+{% endblock %}
 
 {% block content %}
 
-    <h1>Contact Digital Payroll Corporation</h1>
+    <h2>
+        Welcome, {% if user.full_name is null %}guest {% else %}{{ user.full_name }}{% endif %}!
+    </h2>
     
     <form method="post" class="form">
         {{ form_widget(contactForm) }}

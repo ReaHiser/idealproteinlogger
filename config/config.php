@@ -12,7 +12,7 @@ $config = array(
         'user' => 'root',
         'password' => 'MyName!1987',
     ),
-    'debug' => false,
+    'debug' => true,
 	'contactMail' => array('admin@manzwebdesigns.com'),
 );
 

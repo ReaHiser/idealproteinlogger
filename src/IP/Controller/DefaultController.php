@@ -4,7 +4,7 @@ namespace IP\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use IP\Form\ContactForm;
+use IP\Form\OrderForm;
 use IP\Mapper\UserMapper;
 use IP\Form\ClientForm;
 
@@ -73,7 +73,7 @@ class DefaultController
 				}
 		
 				$user->fromArray($data);
-		
+
 				$userMapper->save($user);
 				$app['session']->getFlashBag()->add('success', 'Your account has been updated');
 			}
@@ -84,10 +84,34 @@ class DefaultController
 		));
 	}
 	
-	public function serviceLinksAction(Application $app)
+	public function orderPageAction(Request $request, Application $app)
 	{
-		$user = $app['session']->get('user');
+        $form = new OrderForm($app['form.factory']);
+        $orderForm = $form->build();
+
+        if($request->isMethod('POST')) {
+            $orderForm->bind($request);
+            if($orderForm->isValid()) {
+                $data = $orderForm->getData();
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Contact Form Message')
+                    ->setFrom(array($data['email'] => $data['name']))
+                    ->setTo($app['config']['contactMail'])
+                    ->setBody($data['comments'])
+                ;
+
+                $app['mailer']->send($message);
+                $app['session']->getFlashBag()->add('success', 'Your message has been sent. Thank you!');
+
+                // Clear the form out
+                $orderForm = $form->build();
+            } else {
+                $app['session']->getFlashBag()->add('error', 'There was a problem with your submission. Please check below.');
+            }
+        }
 		
-		return $app['twig']->render('Default/serviceLinks.html.twig', compact('user'));
+		return $app['twig']->render('Default/orderPage.html.twig', array(
+            'orderForm' => $orderForm->createView(),
+        ));
 	}
 }

@@ -8,6 +8,7 @@
 <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <title>{{ page }} - Bud's Ideal Protein Logger</title>
@@ -27,8 +28,7 @@
     <link href="{{ app.request.baseUrl }}/css/layout.css" rel="stylesheet">
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="favicon.ico">
-    <style>
-    </style>
+    <script src="{{ app.request.baseUrl }}/js/vendor/jquery/jquery-2.0.0.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -43,13 +43,15 @@
             <div class="navbar-inner">
                 <div class="container">
                     {% if user %}
-                    <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <ul class="nav">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="http://www.idealprotein.com" target="_blank">Ideal Protein</a></li>
+                            <li><a href="https://www.facebook.com/officialidealprotein" target="_blank">IP Facebook</a></li>
                         {% if user.role == 'ROLE_ADMIN' %}
                             <li><a href="{{ path('admin_clients_index') }}">Update Client</a></li>
                             <li><a href="{{ path('admin_clients_create') }}">Add New Client</a></li>
                         {% else %}
-                            <li><a href="{{ path('service_links') }}">Links</a></li>
+                            <li><a href="{{ path('order_page') }}">Order</a></li>
                             <li><a href="{{ path('contact') }}">Contact</a></li>
                         {% endif %}
                         <li><a href="{{ path('my_account') }}">My Account</a></li>
@@ -58,7 +60,7 @@
                     </ul>
                     {% else %}
                     <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="http://www.idealprotein.com" target="_blank">Ideal Protein</a></li>
                         <li><a href="https://www.facebook.com/officialidealprotein" class="">IP Facebook</a></li>
                         <li><a href="#">Downloads</a></li>
@@ -72,8 +74,11 @@
     </section>
 
     <section class="text-center">
-        {% include 'partials/flashbag.html.twig' %}
-        {% block content %} {% endblock %}
+        <div id="content">
+            {% block herounit %}{% endblock %}
+            {% include 'partials/flashbag.html.twig' %}
+            {% block content %} {% endblock %}
+        </div>
     </section>
 
     <footer class="footer">
@@ -84,12 +89,11 @@
 </div>
 <!-- /container -->
 
-<script src="{{ app.request.baseUrl }}/js/vendor/jquery/jquery-2.0.0.min.js"></script>
 <script src="{{ app.request.baseUrl }}/js/vendor/bootstrap/bootstrap.min.js"></script>
 <script src="{{ app.request.baseUrl }}/js/vendor/underscore/underscore-1.4.4.min.js"></script>
 <script src="{{ app.request.baseUrl }}/js/vendor/json2/json2.min.js"></script>
 <script src="{{ app.request.baseUrl }}/js/vendor/backbone/backbone-1.0.0.min.js"></script>
-<script src="{{ app.request.baseUrl }}/js/app.js"></script>
+<script src="{{ app.request.baseUrl }}/js/main.js"></script>
 
 </body>
 </html>

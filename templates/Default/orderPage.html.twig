@@ -1,7 +1,7 @@
 {% extends 'layout.auth.html.twig' %}
 
-{% set page = 'Account Update' %}
-{% set message = 'Update your account!' %}
+{% set page = 'Order Page' %}
+{% set message = 'This is your order page!' %}
 
 {% block herounit %}
 
@@ -17,12 +17,10 @@
 {% endblock %}
 
 {% block content %}
-    
-    <section>
-        <form method="post">
-            {{ form_widget(clientForm) }}
-            <button type="submit" class="btn btn-medium btn-primary" id="submit">Update Client</button>
-        </form>
-    </section>
+
+    <form method="post" class="form">
+        {{ form_widget(orderForm) }}
+        <button type="submit" class="btn btn-medium btn-primary" id="submit">Send Message</button>
+    </form>
 
 {% endblock %}

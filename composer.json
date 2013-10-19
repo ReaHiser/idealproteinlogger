@@ -1,42 +1,35 @@
 {
-	"name": "lucian303/silex-skeleton",
-	"description": "App skeleton Using the Silex Framework",
-	"version": "0.1.0",
-	"type": "project",
-	"authors": [
-		{
-			"name": "Lucian Hontau",
-			"email": "lucian303@gmail.com",
-			"homepage": "http://lucianux.com",
-			"role": "Lead Developer"
-		}
-	],
-	"license": "MIT",
-	"autoload": {
-		"classmap": ["vendor/"],
-		"psr-0": {
-			"App": "app/src/"
-		}
-	},
-
-	"require": {
-		"php": ">=5.3.3",
-		"silex/silex": "~1.0",
-
-		"doctrine/dbal": "~2.3",
-		"monolog/monolog": "~1.5",
-		"twig/twig": "~1.12",
-		"kriswallsmith/assetic": "~1.0",
-		"mheap/silex-assetic": "1.0.*@dev",
-		"swiftmailer/swiftmailer": "~5.0",
-
-		"symfony/twig-bridge": "~2.2",
-		"symfony/config": "~2.2",
-		"symfony/console": "~2.2",
-		"symfony/form": "~2.2",
-		"symfony/security": "~2.2",
-		"symfony/translation": "~2.2",
-		"symfony/validator": "~2.2",
-        "ruckusing/ruckusing-migrations": "dev-master"
-	}
+    "name": "manzwebdesigns/ideal-protein-logger",
+    "description": "This site is built using the Silex micro-framework, with Twitter Bootstrap, Twig, and PDO installed and registered.",
+    "authors": [
+        {
+            "name": "Bud Manz",
+            "email": "admin@manzwebdesigns.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "silex/silex": "1.0.*@dev",
+        "twig/twig": "1.12.*",
+        "symfony/twig-bridge" : "~2.3",
+	    "symfony/config": "~2.3",
+	    "symfony/form": "~2.3",
+        "hautelook/phpass": "dev-master",
+	    "symfony/validator": "~2.3",
+	    "symfony/translation": "~2.3",
+	    "ruckusing/ruckusing-migrations": "dev-master",
+	    "doctrine/dbal": "2.3.*",
+	    "symfony/console": "~2.3",
+	    "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev"
+    },
+    "require-dev": {
+        "monolog/monolog": "~1.4,>=1.4.1",
+        "phpunit/phpunit": "~3.7"
+    },
+    "autoload": {
+        "psr-0": { 
+            "": "src/"
+        }
+    },
+    "minimum-stability": "dev"
 }
