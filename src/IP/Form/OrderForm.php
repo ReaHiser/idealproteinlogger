@@ -2,26 +2,53 @@
 
 namespace IP\Form;
 
+use PhpORM\Mapper\MapperAbstract;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class OrderForm extends FormAbstract
 {
+    /**
+     *
+     * @var MapperAbstract
+     */
+    protected $orderMapper;
+
 	public function build($data = array(), $options = array())
 	{
-		$form = $this->factory->createBuilder('form', $data)
-			->add('name', 'text', array(
-				'label'       => 'Your Name',
-				'constraints' => array(new Assert\NotBlank(), new Assert\Length(array('min' => 3)))
-			))
-			->add('email', 'email', array(
-				'label'       => 'Email Address',
-				'constraints' => array(new Assert\NotBlank())
-			))
-			->add('comments', 'textarea', array(
-				'label'       => 'Comments',
-			))
-		;
-		
+        $allProducts = $this->getOrderMapper()->fetchAll(array('product'));
+		$form = $this->factory->createBuilder('form', $data);
+        foreach($allProducts as $value) {
+            $form->add('product', 'text', array(
+                    'label'       => 'Product',
+                    'data'        => $value['product']
+                ))
+                ->add('quantity', 'text', array(
+                    'label'       => 'Quantity',
+                    'data'        => 0,
+                    'attr'        => array('style' => 'text-align: right;')
+                ))
+            ;
+        }
 		return $form->getForm();
 	}
+
+    /**
+     * Returns the order mapper
+     *
+     * @throws \Exception
+     * @return \PhpORM\Mapper\MapperAbstract
+     */
+    public function getOrderMapper()
+    {
+        if($this->orderMapper == null) {
+            throw new \Exception('Please set the order mapper');
+        }
+
+        return $this->orderMapper;
+    }
+
+    public function setUserMapper(MapperAbstract $mapper)
+    {
+        $this->orderMapper = $mapper;
+    }
 }

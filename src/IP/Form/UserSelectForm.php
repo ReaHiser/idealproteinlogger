@@ -15,7 +15,7 @@ class UserSelectForm extends FormAbstract
 	
 	public function build($data = array(), $options = array())
 	{
-		$allUsers = $this->getUserMapper()->fetchAll();
+		$allUsers = $this->getUserMapper()->fetchAll(array('id'));
 		$allUserNames = array();
 		foreach($allUsers as $user) {
 			$allUserNames[$user->id] = $user->username;
@@ -32,13 +32,13 @@ class UserSelectForm extends FormAbstract
 			
 			return $form->getForm();
 	}
-	
-	/**
-	 * Returns the user mapper
-	 * 
-	 * @throws Exception
-	 * @return \PhpORM\Mapper\MapperAbstract
-	 */
+
+    /**
+     * Returns the user mapper
+     *
+     * @throws \Exception
+     * @return \PhpORM\Mapper\MapperAbstract
+     */
 	public function getUserMapper()
 	{
 		if($this->userMapper == null) {

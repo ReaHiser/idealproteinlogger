@@ -20,11 +20,19 @@ class MapperAbstract
         $db->delete($this->table, $where);
     }
 
-    public function fetchAll()
+    /**
+     * @param array $orderby
+     * @param string $sort
+     * @return array
+     */
+    public function fetchAll(array $orderby = null, $sort = 'ASC')
     {
         $db = $this->getDb();
 
-        $sql = "SELECT * FROM `"  . $this->table . "` ORDER BY id ASC";
+        if(!is_null($orderby)) {
+            $orderby = " ORDER BY " . implode(', ', $orderby);
+        }
+        $sql = "SELECT * FROM `"  . $this->table . $orderby . ' ' . $sort;
         $result = $db->fetchAll($sql);
         
         $data = array();

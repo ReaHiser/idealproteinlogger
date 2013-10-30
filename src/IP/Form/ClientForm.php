@@ -37,8 +37,8 @@ class ClientForm extends FormAbstract
 
 		$form = $this->factory->createBuilder('form', $data)
 			->add('full_name', 'text', array(
-				'label'       => 'Full Name' /*,
-				'constraints' => array(new Assert\NotBlank(), new Assert\Length(array('min' => 3))) */
+				'label'       => 'Full Name',
+				'constraints' => array(new Assert\NotBlank(), new Assert\Length(array('min' => 3)))
 			))
 			->add('username', 'text', array(
 				'label'       => 'Username',

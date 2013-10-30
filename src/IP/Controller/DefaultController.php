@@ -5,7 +5,9 @@ namespace IP\Controller;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use IP\Form\OrderForm;
+use IP\Form\ContactForm;
 use IP\Mapper\UserMapper;
+use IP\Mapper\OrderMapper;
 use IP\Form\ClientForm;
 
 class DefaultController
@@ -13,17 +15,19 @@ class DefaultController
 	public function contactAction(Request $request, Application $app)
 	{
 		$form = new ContactForm($app['form.factory']);
-		$contactForm = $form->build();
+		$contactForm = $form->build($app['session']->get('user'));
 		
 		if($request->isMethod('POST')) {
 			$contactForm->bind($request);
 			if($contactForm->isValid()) {
 				$data = $contactForm->getData();
+                $userEmailInfo = array($data->email => $data->full_name);
 				$message = \Swift_Message::newInstance()
-					->setSubject('Contact Form Message')
-					->setFrom(array($data['email'] => $data['name']))
-					->setTo($app['config']['contactMail'])
-					->setBody($data['comments'])
+                    ->setSubject('New Email from ' . $data->full_name)
+                    ->setFrom($userEmailInfo)
+                    ->setTo($app['config']['contactMail'])
+                    ->setCC($userEmailInfo)
+                    ->setBody($data->comments)
 				;
 				
 				$app['mailer']->send($message);
@@ -86,18 +90,23 @@ class DefaultController
 	
 	public function orderPageAction(Request $request, Application $app)
 	{
+        $orderMapper = new OrderMapper($app['db']);
+
         $form = new OrderForm($app['form.factory']);
+        $form->setOrderMapper($orderMapper);
         $orderForm = $form->build();
 
         if($request->isMethod('POST')) {
             $orderForm->bind($request);
             if($orderForm->isValid()) {
                 $data = $orderForm->getData();
+                $userEmailInfo = array($data->email => $data->full_name);
                 $message = \Swift_Message::newInstance()
-                    ->setSubject('Contact Form Message')
-                    ->setFrom(array($data['email'] => $data['name']))
+                    ->setSubject('New Order from ' . $data->full_name)
+                    ->setFrom($userEmailInfo)
                     ->setTo($app['config']['contactMail'])
-                    ->setBody($data['comments'])
+                    ->setCC($userEmailInfo)
+                    ->setBody($data->comments)
                 ;
 
                 $app['mailer']->send($message);
