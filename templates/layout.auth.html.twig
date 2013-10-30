@@ -46,10 +46,10 @@
                         <ul class="nav">
                             <li><a href="/">Home</a></li>
                             <li><a href="http://www.idealprotein.com" target="_blank">Ideal Protein</a></li>
-                            <li><a href="https://www.facebook.com/officialidealprotein" target="_blank">IP Facebook</a></li>
+                            <li><a href="https://www.facebook.com/officialidealprotein" target="_blank">Facebook</a></li>
                         {% if user.role == 'ROLE_ADMIN' %}
                             <li><a href="{{ path('admin_clients_index') }}">Update Client</a></li>
-                            <li><a href="{{ path('admin_clients_create') }}">Add New Client</a></li>
+                            <li><a href="{{ path('admin_clients_create') }}">Add Client</a></li>
                         {% else %}
                             <li><a href="{{ path('order_page') }}">Order</a></li>
                             <li><a href="{{ path('contact') }}">Contact</a></li>
