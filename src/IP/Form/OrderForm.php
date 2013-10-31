@@ -15,7 +15,7 @@ class OrderForm extends FormAbstract
 
 	public function build($data = array(), $options = array())
 	{
-        $allProducts = $this->getOrderMapper()->fetchAll(array('product'));
+        $allProducts = $this->getOrderMapper()->fetchProduct();
 		$form = $this->factory->createBuilder('form', $data);
         foreach($allProducts as $value) {
             $form->add('product', 'text', array(
@@ -47,7 +47,7 @@ class OrderForm extends FormAbstract
         return $this->orderMapper;
     }
 
-    public function setUserMapper(MapperAbstract $mapper)
+    public function setOrderMapper(MapperAbstract $mapper)
     {
         $this->orderMapper = $mapper;
     }

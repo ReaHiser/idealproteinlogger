@@ -1,4 +1,3 @@
-app/Model/config.php
 .idea
 vendor/
 tmp/sessions/
@@ -9,3 +8,4 @@ tmp/sessions/
 !/public/js/vendor
 logs/
 db/
+config/config.php
